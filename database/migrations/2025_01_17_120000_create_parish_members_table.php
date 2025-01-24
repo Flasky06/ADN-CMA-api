@@ -6,30 +6,33 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('parish_members', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable();
+            $table->id('Regno');
+            $table->string('Name')->nullable();
+            $table->string('IdNo')->nullable();
+            $table->string('DOB')->nullable();
+            $table->string('ParishCode')->nullable();
+            $table->string('StationCode')->nullable();
             $table->string('Commissioned')->nullable();
             $table->string('CommissionNo')->nullable();
-            $table->timestamp('DateJoin')->nullable();
-            $table->string('photo')->nullable();
-            $table->string('IdNo')->nullable();
-            $table->string('CellNo')->nullable();
-            $table->string('email')->nullable();
             $table->string('Status')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('LithurgyStatus')->nullable();
+            $table->string('DeanCode')->nullable();
+            $table->string('Rpt')->nullable();
+            $table->string('CellNo')->nullable();
+            $table->string('Bapt')->nullable();
+            $table->string('Conf')->nullable();
+            $table->string('Euc')->nullable();
+            $table->string('Marr')->nullable();
+            $table->string('email')->nullable();
             $table->foreignId('parish_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('parish_members');
